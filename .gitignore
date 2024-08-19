@@ -1,3 +1,5 @@
 obj/
 
 *.o
+.DS_Store
+game_of_life

@@ -6,7 +6,7 @@ C			:= gcc
 SRCDIR		:= src
 OBJDIR		:= obj
 INCDIR		:= -I$(SRCDIR)/includes
-CFLAGS 		:= -Wall -pedantic
+CFLAGS 		:= -Wall -pedantic -std=c99
 RFLAGS		:= -lopengl32 -lgdi32 -lwinmm
 MKDIR		:= mkdir -p
 

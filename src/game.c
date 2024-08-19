@@ -10,7 +10,12 @@
 // Implement public functions
 //----------------------------------------------------------------------------------
 
-GOF struct Game *game_init(void) {
+GOL struct Game *game_init(void) {
+
+#if defined(GOL_DEBUG)
+  SetTraceLogLevel(LOG_DEBUG);
+#endif
+
   InitWindow(GOL_SCREEN_WIDTH, GOL_SCREEN_HEIGHT, GOL_SCREEN_TITLE);
 
   struct Game *game = MemAlloc(sizeof(struct Game));
@@ -20,11 +25,14 @@ GOF struct Game *game_init(void) {
   }
 
   SetTargetFPS(GOL_FPS);
+#if defined(GOL_DEBUG)
+  TraceLog(LOG_DEBUG, "struct Game * created");
+#endif
 
   return game;
 }
 
-GOF void game_run(const struct Game *const game) {
+GOL void game_run(const struct Game *const game) {
   while (!WindowShouldClose()) {
     BeginDrawing();
     ClearBackground(GOL_BACKGROUND);
@@ -32,11 +40,15 @@ GOF void game_run(const struct Game *const game) {
   }
 }
 
-GOF void game_delete(struct Game **ptr) {
+GOL void game_delete(struct Game **ptr) {
   if (ptr) {
     CloseWindow();
     MemFree(*ptr);
     (*ptr) = NULL;
+    ptr = NULL;
+#if defined(GOL_DEBUG)
+    TraceLog(LOG_DEBUG, "struct Game * deleted");
+#endif
   }
 }
 

@@ -12,9 +12,9 @@ struct Game {
 extern "C" {
 #endif
 
-GOF struct Game *game_init(void);
-GOF void game_run(const struct Game *const game);
-GOF void game_delete(struct Game **ptr);
+GOL struct Game *game_init(void);
+GOL void game_run(const struct Game *const game);
+GOL void game_delete(struct Game **ptr);
 
 #if defined(_cplusplus)
 }

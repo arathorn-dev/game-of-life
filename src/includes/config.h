@@ -5,7 +5,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define GOF
+#define GOL
+// #define GOL_DEBUG 1
 
 #define GOL_SCREEN_WIDTH 640
 #define GOL_SCREEN_HEIGHT 480
