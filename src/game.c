@@ -39,7 +39,7 @@ GOL struct Game *game_init(void) {
   SetTargetFPS(GOL_FPS);
 
   game->screen_index = 0;
-  game->screens[0] = main_screen_create();
+  game->screens[0] = menu_screen_create();
 
 #if defined(GOL_DEBUG)
   TraceLog(LOG_DEBUG, "struct Game * created");
@@ -79,8 +79,8 @@ GOL void game_delete(struct Game **ptr) {
 //----------------------------------------------------------------------------------
 GOL void current_screen_update(struct Screen *const screen) {
   switch (screen->type) {
-  case SCREEN_MAIN:
-    main_screen_update(screen);
+  case SCREEN_MENU:
+    menu_screen_update(screen);
   default: {
   }
   }
@@ -88,8 +88,8 @@ GOL void current_screen_update(struct Screen *const screen) {
 
 GOL void current_screen_render(const struct Screen *const screen) {
   switch (screen->type) {
-  case SCREEN_MAIN:
-    main_screen_render(screen);
+  case SCREEN_MENU:
+    menu_screen_render(screen);
   default: {
   }
   }
@@ -97,8 +97,8 @@ GOL void current_screen_render(const struct Screen *const screen) {
 
 GOL void current_screen_destroy(struct Screen **ptr) {
   switch ((*ptr)->type) {
-  case SCREEN_MAIN:
-    main_screen_destroy(ptr);
+  case SCREEN_MENU:
+    menu_screen_destroy(ptr);
   default: {
   }
   }

@@ -3,7 +3,7 @@
 
 #include "config.h"
 
-enum ScreenType { SCREEN_MAIN = 0, SCREEN_OPTION, SCREEN_LEVEL_0 };
+enum ScreenType { SCREEN_MENU = 0, SCREEN_OPTION, SCREEN_LEVEL_0 };
 
 struct Screen {
   enum ScreenType type;
@@ -13,10 +13,10 @@ struct Screen {
 extern "C" {
 #endif
 
-GOL struct Screen *main_screen_create(void);
-GOL void main_screen_update(struct Screen *const screen);
-GOL void main_screen_render(const struct Screen *const screen);
-GOL void main_screen_destroy(struct Screen **ptr);
+GOL struct Screen *menu_screen_create(void);
+GOL void menu_screen_update(struct Screen *const screen);
+GOL void menu_screen_render(const struct Screen *const screen);
+GOL void menu_screen_destroy(struct Screen **ptr);
 
 #if defined(__cplusplus)
 }
