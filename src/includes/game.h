@@ -2,10 +2,11 @@
 #define __GOL_GAME_H__
 
 #include "config.h"
+#include "screen.h"
 
 struct Game {
-  int32_t width;
-  int32_t height;
+  struct Screen *screens[GOL_SCREEN_NUMBER];
+  int8_t screen_index;
 };
 
 #if defined(_cplusplus)
